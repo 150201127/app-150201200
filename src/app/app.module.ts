@@ -13,7 +13,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { PortalModule } from './portal/portal.module';
 import { PlayerModule } from "./player/player.module";
+import * as firebase from 'firebase';
+import { environment } from 'src/environments/environment';
 
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +29,7 @@ import { PlayerModule } from "./player/player.module";
     IonicStorageModule.forRoot(),
     HttpClientModule,
     PortalModule,
-    PlayerModule
+    PlayerModule,
   ],
   providers: [
     StatusBar,
