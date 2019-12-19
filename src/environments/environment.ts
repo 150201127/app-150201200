@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDFckrFboZ5WSbUqPQNzOsqwnZdEjczLYo",
+    authDomain: "couchsurfing-4b699.firebaseapp.com",
+    databaseURL: "https://couchsurfing-4b699.firebaseio.com",
+    projectId: "couchsurfing-4b699",
+    storageBucket: "couchsurfing-4b699.appspot.com",
+    messagingSenderId: "435740090576",
+    appId: "1:435740090576:web:65c65bac4bd7ed3e647ed5"
+  }
 };
 
 /*
