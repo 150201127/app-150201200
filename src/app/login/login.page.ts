@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from '../authService/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,18 +12,13 @@ export class LoginPage implements OnInit {
   email:string;
   password:string;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   login(){
-    firebase.auth().signInWithEmailAndPassword(this.email,this.password)
-      .then((data)=> {
-        console.log(data);
-      }).catch((err)=> {
-        console.log(err);
-      })
+    this.authService.serviceLogin(this.email, this.password);
   }
 
 }

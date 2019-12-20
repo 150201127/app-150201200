@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from '../authService/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,19 +11,15 @@ export class SignupPage implements OnInit {
 
   email:string;
   password:string;
+  username:string;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   signup() {
-    firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-      .then((data)=>{
-        console.log(data);
-      }).catch((err)=>{
-        console.log("Verbose: " + err);
-      });
+    this.authService.serviceSignup(this.email, this.password, this.username);
   }
 
 }

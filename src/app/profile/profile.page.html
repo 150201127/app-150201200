@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-infinite-scroll scrollX="true">
+
+    <div class="card">
+      <div class="header ion-margin">
+        <div class="avatar">
+          <img src="../../assets/prof.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body" [(ngModel)]='username'>
+      <div class="user-meta ion-text-center">
+        <h3 class="username">{{username}}</h3>
+        <h5 class="city">Switzerland</h5>
+        <h6 class="refs">Referanslar
+          <ion-chip class="chip ion-margin-bottom">
+            <ion-label>25</ion-label>
+          </ion-chip>
+        </h6>
+      </div>
+      <ion-button expand="block" class="button-style">Paylaştığım Postlar</ion-button>
+      <ion-button expand="block" class="button-style">Gelen Davetler</ion-button>
+      <ion-button expand="block" class="button-style">Sohbetlerim</ion-button>
+    </div>
+
+  </ion-infinite-scroll>
+</ion-content>

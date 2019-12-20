@@ -23,7 +23,8 @@ const routes: Routes = [
     path: 'player',
     loadChildren: './player/player.module#PlayerModule'
   },  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' }
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
 
 
 ];
