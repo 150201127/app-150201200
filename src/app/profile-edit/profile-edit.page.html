@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>profile-edit</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+
+        <div ion-row margin-bottom="20px">
+            <ion-card padding>
+                <ion-label position="stacked">Email (Değiştirilemez)</ion-label>
+                <ion-input type="text" [readonly]="true">{{email}}</ion-input>
+            </ion-card>
+        </div>
+
+        <div ion-row margin-bottom="20px">
+
+            <ion-card padding>
+                <ion-label position="stacked">Kullanıcı Adı (Değiştirilemez)</ion-label>
+                <ion-input type="email" [readonly]="true">{{username}}</ion-input>
+            </ion-card>
+
+        </div>
+
+        <div ion-row margin-bottom="20px">
+
+            <ion-card padding>
+                <ion-label>Misafir alabileceğiniz şehirler</ion-label>
+                <ion-select okText="Tamam" cancelText="İptal" [(ngModel)]="currentCity" (ionChange)="addCity()">
+                    <ion-select-option *ngFor="let city of cities" [value]='city'>{{city.name}}</ion-select-option>
+                </ion-select>
+            </ion-card>
+
+        </div>
+
+        <div ion-row *ngIf="selectedCities != null" margin-bottom="20px">
+
+            <ion-chip *ngFor="let selected of selectedCities;let i=index">
+                <ion-icon name="pin" color="primary"></ion-icon>
+                <ion-label>{{selected.name}}</ion-label>
+                <button ion-icon (click)="deleteSelected(i)">
+                    <ion-icon name="close-circle"></ion-icon>
+                </button>
+            </ion-chip>
+
+        </div>
+
+    </ion-grid>
+
+    <ion-button expand="block" color="success" (click)="save()">Kaydet</ion-button>
+</ion-content>

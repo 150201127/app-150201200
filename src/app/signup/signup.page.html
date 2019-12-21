@@ -1,29 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Create an Account</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Create an Account</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-list>
+    <ion-list>
 
-    <ion-item>
-      <ion-label position="stacked">Username</ion-label>
-      <ion-input type="text" placeholder="denemeDenemeci" [(ngModel)]="username"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Kullanıcı Adı</ion-label>
+            <ion-input type="text" placeholder="denemeDenemeci" [(ngModel)]="username"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="email" placeholder="deneme@gmail.com" [(ngModel)]="email"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input type="email" placeholder="deneme@gmail.com" [(ngModel)]="email"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input type="password" placeholder="Şifre" [(ngModel)]="password"></ion-input>
-    </ion-item>
-  </ion-list>
+        <ion-item>
+            <ion-label position="stacked">Şifre</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
 
-  <ion-button expand="block" (click)="signup()">Sign Up</ion-button>
+    </ion-list>
+
+    <ion-button expand="block" (click)="signup()">Sign Up</ion-button>
 
 </ion-content>
