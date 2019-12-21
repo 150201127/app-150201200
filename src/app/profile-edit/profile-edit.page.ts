@@ -1,16 +1,24 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
+import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
+import {AlertController} from '@ionic/angular';
+import {log} from 'util';
 
 @Component({
     selector: 'app-profile-edit',
     templateUrl: './profile-edit.page.html',
     styleUrls: ['./profile-edit.page.scss'],
 })
+
+
 export class ProfileEditPage implements OnInit {
 
     email: string;
     username: string;
+    uid: string;
     currentCity: {};
+    updatedProfilPic: any;
+    uploadUrl: any;
 
     cities: any[] = [
         {
@@ -341,8 +349,24 @@ export class ProfileEditPage implements OnInit {
 
     selectedCities: any[] = [];
 
-    constructor() {
+    constructor(public alertController: AlertController, private camera: Camera) {
+    }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Uyarı',
+            message: 'Profil resmi olarak sadece kare resim aldığımız için. Kamerayı kullandıktan sonra ' +
+                'gelen kesme işlemini onaylayınız.',
+            buttons: [{
+                text: 'Tamam',
+                role: 'resume',
+                handler: () => {
+                    this.openCamera();
+                }
+            }]
+        });
+
+        await alert.present();
     }
 
     ngOnInit() {
@@ -351,13 +375,15 @@ export class ProfileEditPage implements OnInit {
                 console.log(user);
                 this.email = user.email;
                 this.username = user.displayName;
+                this.updatedProfilPic = user.photoURL;
+                this.uid = user.uid;
             }
         });
 
     }
 
     save() {
-
+        this.upload();
     }
 
     addCity() {
@@ -369,6 +395,49 @@ export class ProfileEditPage implements OnInit {
 
     deleteSelected(i: number) {
         this.selectedCities.splice(i, 1);
+    }
+
+    changeProfilePic() {
+        this.presentAlert();
+    }
+
+    openCamera() {
+        const options: CameraOptions = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            targetWidth: 250,
+            targetHeight: 250,
+            allowEdit: true,
+        };
+
+        this.camera.getPicture(options).then((imageData) => {
+            // imageData is either a base64 encoded string or a file URI
+            // If it's base64 (DATA_URL):
+            this.updatedProfilPic = 'data:image/jpeg;base64,' + imageData;
+
+        }, (err) => {
+            // Handle error
+        });
+    }
+
+    upload() {
+        const storageRef = firebase.storage().ref();
+
+        const imageRef = storageRef.child('images/' + this.uid + '.jpg');
+
+        imageRef.putString(this.updatedProfilPic, firebase.storage.StringFormat.DATA_URL)
+            .then((snapshot) => {
+
+                imageRef.getDownloadURL().then((data) => {
+                    firebase.auth().currentUser.updateProfile({
+                        photoURL: data,
+                    });
+                });
+
+
+            });
     }
 
 }

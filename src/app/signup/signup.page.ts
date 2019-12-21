@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
-import { AuthService } from '../services/authService/auth.service';
+import {AuthService} from '../services/authService/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.page.html',
-  styleUrls: ['./signup.page.scss'],
+    selector: 'app-signup',
+    templateUrl: './signup.page.html',
+    styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
 
-  email:string;
-  password:string;
-  username:string;
+    email: string;
+    password: string;
+    username: string;
 
-  constructor(private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+    constructor(private authService: AuthService) {
+    }
 
-  signup() {
-    this.authService.serviceSignup(this.email, this.password, this.username);
-  }
+    ngOnInit() {
+    }
+
+    signup() {
+        this.authService.serviceSignup(this.email, this.password, this.username);
+    }
 
 }

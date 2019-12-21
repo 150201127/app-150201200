@@ -1,10 +1,11 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor() { }
+    constructor() {
+    }
 }

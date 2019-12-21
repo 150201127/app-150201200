@@ -6,7 +6,22 @@
 
 <ion-content>
 
+
+
     <ion-grid>
+
+        <div ion-row class="header ion-margin">
+            <div class="avatar">
+                <ion-fab>
+                    <ion-fab-button color="danger" (click)="changeProfilePic()">
+                        <ion-icon name="md-settings"></ion-icon>
+                    </ion-fab-button>
+                </ion-fab>
+                <img [src]="updatedProfilPic" alt="">
+            </div>
+
+
+        </div>
 
         <div ion-row margin-bottom="20px">
             <ion-card padding>
@@ -27,7 +42,7 @@
         <div ion-row margin-bottom="20px">
 
             <ion-card padding>
-                <ion-label>Misafir alabileceğiniz şehirler</ion-label>
+                <ion-label margin-bottom="5px">Misafir alabileceğiniz şehirler</ion-label>
                 <ion-select okText="Tamam" cancelText="İptal" [(ngModel)]="currentCity" (ionChange)="addCity()">
                     <ion-select-option *ngFor="let city of cities" [value]='city'>{{city.name}}</ion-select-option>
                 </ion-select>
