@@ -1,0 +1,26 @@
+ion-content {
+  --background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+ion-title {
+  margin-top: 30vh;
+  margin-bottom: 5vh;
+  font-size: 40px;
+  color: #2A2D31;
+  font-weight: 600;
+}
+
+ion-button {
+  height: 55px;
+  font-size: large;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.myInput {
+  border-radius: 10px;
+  height: 50px;
+  margin-bottom: 10px;
+  background: white;
+  font-weight: bolder;
+}

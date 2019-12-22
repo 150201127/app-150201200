@@ -1,24 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding text-center>
 
-<ion-content>
+    <div>
+        <ion-title>Couch Surfing</ion-title>
 
-  <ion-list>
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="email" placeholder="deneme@gmail.com" [(ngModel)]="email"></ion-input>
-    </ion-item>
+        <ion-input type="email" placeholder="Email" class="myInput" [(ngModel)]="email"></ion-input>
 
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input type="password" placeholder="Şifre" [(ngModel)]="password"></ion-input>
-    </ion-item>
-  </ion-list>
+        <ion-input type="password" placeholder="Şifre" class="myInput" [(ngModel)]="password"></ion-input>
 
-  <ion-button expand="block" (click)="login()">Login</ion-button>
+
+        <ion-button expand="block" (click)="login()">Giriş Yap</ion-button>
+        <ion-button color="light" routerLink="/signup" routerDirection="root" (click)="login()">Kayıt Ol</ion-button>
+    </div>
 
 </ion-content>
 

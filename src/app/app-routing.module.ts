@@ -4,7 +4,7 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'profile-edit',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
@@ -35,8 +35,10 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: './profile/profile.module#ProfilePageModule'
     },
-  { path: 'profile-edit', loadChildren: './profile-edit/profile-edit.module#ProfileEditPageModule' }
-
+    {
+        path: 'profile-edit',
+        loadChildren: './profile-edit/profile-edit.module#ProfileEditPageModule'
+    },
 
 
 ];

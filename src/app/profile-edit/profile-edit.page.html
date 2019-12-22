@@ -13,7 +13,7 @@
         <div ion-row class="header ion-margin">
             <div class="avatar">
                 <ion-fab>
-                    <ion-fab-button color="danger" (click)="changeProfilePic()">
+                    <ion-fab-button color="danger" (click)="ppSettingClick()">
                         <ion-icon name="md-settings"></ion-icon>
                     </ion-fab-button>
                 </ion-fab>
@@ -43,7 +43,7 @@
 
             <ion-card padding>
                 <ion-label margin-bottom="5px">Misafir alabileceğiniz şehirler</ion-label>
-                <ion-select okText="Tamam" cancelText="İptal" [(ngModel)]="currentCity" (ionChange)="addCity()">
+                <ion-select okText="Tamam" cancelText="İptal" [(ngModel)]="currentCity" (ionChange)="addCityClick()">
                     <ion-select-option *ngFor="let city of cities" [value]='city'>{{city.name}}</ion-select-option>
                 </ion-select>
             </ion-card>
@@ -55,7 +55,7 @@
             <ion-chip *ngFor="let selected of selectedCities;let i=index">
                 <ion-icon name="pin" color="primary"></ion-icon>
                 <ion-label>{{selected.name}}</ion-label>
-                <button ion-icon (click)="deleteSelected(i)">
+                <button ion-icon (click)="deleteCityClick(i)">
                     <ion-icon name="close-circle"></ion-icon>
                 </button>
             </ion-chip>
@@ -64,5 +64,5 @@
 
     </ion-grid>
 
-    <ion-button expand="block" color="success" (click)="save()">Kaydet</ion-button>
+    <ion-button expand="block" color="success" (click)="saveClick()">Kaydet</ion-button>
 </ion-content>

@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import {AlertController} from '@ionic/angular';
 import {log} from 'util';
+import {FirebaseService} from '../services/firebaseService/firebase.service';
 
 @Component({
     selector: 'app-profile-edit',
@@ -18,7 +19,7 @@ export class ProfileEditPage implements OnInit {
     uid: string;
     currentCity: {};
     updatedProfilPic: any;
-    uploadUrl: any;
+    isPpUpdated = false;
 
     cities: any[] = [
         {
@@ -349,24 +350,9 @@ export class ProfileEditPage implements OnInit {
 
     selectedCities: any[] = [];
 
-    constructor(public alertController: AlertController, private camera: Camera) {
-    }
-
-    async presentAlert() {
-        const alert = await this.alertController.create({
-            header: 'Uyarı',
-            message: 'Profil resmi olarak sadece kare resim aldığımız için. Kamerayı kullandıktan sonra ' +
-                'gelen kesme işlemini onaylayınız.',
-            buttons: [{
-                text: 'Tamam',
-                role: 'resume',
-                handler: () => {
-                    this.openCamera();
-                }
-            }]
-        });
-
-        await alert.present();
+    constructor(private firebaseService: FirebaseService,
+                public alertController: AlertController,
+                private camera: Camera) {
     }
 
     ngOnInit() {
@@ -382,22 +368,39 @@ export class ProfileEditPage implements OnInit {
 
     }
 
-    save() {
-        this.upload();
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Uyarı',
+            message: 'Profil resmi olarak sadece kare resim aldığımız için. Kamerayı kullandıktan sonra ' +
+                'gelen kesme işlemini onaylayınız.',
+            buttons: [{
+                text: 'Tamam',
+                role: 'resume',
+                handler: () => {
+                    this.openCamera();
+                }
+            }]
+        });
+        await alert.present();
     }
 
-    addCity() {
-        if (!this.selectedCities.includes(this.currentCity)) {
-            this.selectedCities.push(this.currentCity);
+    saveClick() {
+        if (this.isPpUpdated) {
+            this.firebaseService.updateProfilePic(this.uid, this.updatedProfilPic);
         }
-        console.log(this.currentCity);
     }
 
-    deleteSelected(i: number) {
+    deleteCityClick(i: number) {
         this.selectedCities.splice(i, 1);
     }
 
-    changeProfilePic() {
+    addCityClick() {
+        if (!this.selectedCities.includes(this.currentCity)) {
+            this.selectedCities.push(this.currentCity);
+        }
+    }
+
+    ppSettingClick() {
         this.presentAlert();
     }
 
@@ -413,31 +416,11 @@ export class ProfileEditPage implements OnInit {
         };
 
         this.camera.getPicture(options).then((imageData) => {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64 (DATA_URL):
             this.updatedProfilPic = 'data:image/jpeg;base64,' + imageData;
-
+            this.isPpUpdated = true;
         }, (err) => {
-            // Handle error
         });
     }
 
-    upload() {
-        const storageRef = firebase.storage().ref();
-
-        const imageRef = storageRef.child('images/' + this.uid + '.jpg');
-
-        imageRef.putString(this.updatedProfilPic, firebase.storage.StringFormat.DATA_URL)
-            .then((snapshot) => {
-
-                imageRef.getDownloadURL().then((data) => {
-                    firebase.auth().currentUser.updateProfile({
-                        photoURL: data,
-                    });
-                });
-
-
-            });
-    }
 
 }
