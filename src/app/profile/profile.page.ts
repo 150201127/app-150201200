@@ -11,13 +11,14 @@ export class ProfilePage implements OnInit {
 
     username: string;
     profilePic: string;
+    selectedCities = ['Ankara', 'Istanbul', 'Izmir', 'Kocaeli', 'Eskisehir'];
 
     constructor(private navCtrl: NavController) {
     }
 
     ngOnInit() {
         firebase.auth().onAuthStateChanged((user) => {
-            this.username = user.displayName;
+            this.username = '@' + user.displayName;
             this.profilePic = user.photoURL;
         });
     }

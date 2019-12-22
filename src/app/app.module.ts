@@ -18,7 +18,8 @@ import {environment} from 'src/environments/environment';
 import {Camera} from '@ionic-native/camera/ngx';
 import {ToastController} from '@ionic/angular';
 import {NavController} from '@ionic/angular';
-
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 firebase.initializeApp(environment.firebase);
 
@@ -33,6 +34,7 @@ firebase.initializeApp(environment.firebase);
         HttpClientModule,
         PortalModule,
         PlayerModule,
+        AngularFireModule.initializeApp(environment.firebase),
     ],
     providers: [
         StatusBar,
@@ -42,6 +44,8 @@ firebase.initializeApp(environment.firebase);
         Camera,
         ToastController,
         NavController,
+        AngularFirestore,
+
     ],
     bootstrap: [AppComponent]
 })

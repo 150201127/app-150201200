@@ -22,6 +22,7 @@ export class ProfileEditPage implements OnInit {
     currentCity: {};
     updatedProfilPic: any;
     isPpUpdated = false;
+    selectedCitiesFire;
 
     cities: any[] = [
         {
@@ -368,7 +369,9 @@ export class ProfileEditPage implements OnInit {
                 this.updatedProfilPic = user.photoURL;
                 this.uid = user.uid;
             }
+            // buraya data cek
         });
+
 
     }
 
@@ -389,10 +392,18 @@ export class ProfileEditPage implements OnInit {
     }
 
     saveClick() {
-        /*if (this.isPpUpdated) {
-            this.firebaseService.updateProfilePic(this.uid, this.updatedProfilPic);
-        }*/
-        this.navCtrl.navigateRoot('/login');
+        if (this.isPpUpdated) {
+            this.firebaseService.updateProfilePic(this.uid, this.updatedProfilPic).then(() => {
+                this.firebaseService.uploadCities(this.uid, this.selectedCities).then(() => {
+                    this.navCtrl.navigateRoot('/profile');
+                });
+            });
+        } else {
+            this.firebaseService.uploadCities(this.uid, this.selectedCities).then(() => {
+                this.navCtrl.navigateRoot('/profile');
+            });
+        }
+
     }
 
     deleteCityClick(i: number) {
@@ -411,7 +422,7 @@ export class ProfileEditPage implements OnInit {
 
     openCamera() {
         const options: CameraOptions = {
-            quality: 100,
+            quality: 70,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,

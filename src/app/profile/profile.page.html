@@ -9,10 +9,17 @@
             </div>
         </div>
 
-        <div class="card-body" [(ngModel)]='username'>
-            <div class="user-meta ion-text-center">
+        <div class="card-body">
+            <div class="user-meta" text-center>
                 <h3 class="username">{{username}}</h3>
-                <h5 class="city">Switzerland</h5>
+                <div class="row" *ngIf="selectedCities != null" margin-bottom="20px">
+
+                    <ion-chip *ngFor="let selected of selectedCities">
+                        <ion-icon name="pin" color="primary"></ion-icon>
+                        <ion-label>{{selected}}</ion-label>
+                    </ion-chip>
+
+                </div>
                 <h6 class="refs">Referanslar
                     <ion-chip class="chip ion-margin-bottom">
                         <ion-label>25</ion-label>
