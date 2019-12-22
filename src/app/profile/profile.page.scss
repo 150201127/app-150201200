@@ -1,57 +1,53 @@
 .card-body {
-  background-color: #ffffff;
   overflow: hidden;
+  background-color: white;
 
   .button-style {
     margin: 0 20px 15px 20px;
-    background-color: #009688;
     color: white;
     border-radius: 5px;
+    height: 55px;
   }
 
   .user-meta {
 
-      .username {
-          font-size: 24px;
-          font-weight: 600;
-          color: #303940;
-      }
+    .username {
+      font-size: 24px;
+      font-weight: 600;
+      color: #303940;
+    }
 
-      .city {
-          font-size: 90%;
-          color: #949ea6;
-          text-transform: uppercase;
-          margin: 0 auto;
-      }
+    .chip {
+      background-color: #009688;
+      color: #ffffff;
+    }
 
-      .chip {
-        background-color: #E91E63;
-        color: #ffffff;
-      }
+    .chip2 {
+      background-color: #F44336;
+      color: #ffffff;
+    }
   }
 }
-
-
 
 
 .card {
   margin: 0 auto;
 
   .header {
-      height: 160px;
+    height: 180px;
 
-      .avatar {
-          width: 160px;
-          height: 160px;
-          position: relative;
-          margin: 0 auto;
+    .avatar {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      margin: 0 auto;
 
-          img {
-              display: block;
-              border-radius: 50%;
-              position: absolute;
-              background-color: #fff;
-          }
+      img {
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        background-color: #fff;
       }
+    }
   }
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as firebase from 'firebase/app';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {async} from '@angular/core/testing';
 
 @Injectable({
     providedIn: 'root'
@@ -9,8 +10,6 @@ export class FirebaseService {
 
     constructor(private fireStore: AngularFirestore) {
     }
-
-
     updateProfilePic(uid: string, updatedProfilePic: any): Promise<any> {
 
         const imageRef = firebase.storage().ref().child('ProfilePics/' + uid + '.jpg');
@@ -35,8 +34,6 @@ export class FirebaseService {
     }
 
     getCities(uid: string) {
-        return this.fireStore.collection('cities').doc('cdGWZzKjJ7SFAiL5PiMNo5KWrHL2').get().subscribe(data => {
-            console.log(data.data());
-        });
+        return this.fireStore.collection('cities').doc(uid).get();
     }
 }

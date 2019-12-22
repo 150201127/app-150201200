@@ -22,7 +22,6 @@ export class ProfileEditPage implements OnInit {
     currentCity: {};
     updatedProfilPic: any;
     isPpUpdated = false;
-    selectedCitiesFire;
 
     cities: any[] = [
         {
@@ -370,6 +369,9 @@ export class ProfileEditPage implements OnInit {
                 this.uid = user.uid;
             }
             // buraya data cek
+            this.firebaseService.getCities(user.uid).subscribe(data => {
+                this.selectedCities = Object.values(data.data().cities);
+            });;
         });
 
 

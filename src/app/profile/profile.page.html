@@ -12,19 +12,24 @@
         <div class="card-body">
             <div class="user-meta" text-center>
                 <h3 class="username">{{username}}</h3>
-                <div class="row" *ngIf="selectedCities != null" margin-bottom="20px">
+                <div class="row" *ngIf="cities != null" margin-bottom="20px">
 
-                    <ion-chip *ngFor="let selected of selectedCities">
+                    <ion-chip color="primary" *ngFor="let selected of cities">
                         <ion-icon name="pin" color="primary"></ion-icon>
-                        <ion-label>{{selected}}</ion-label>
+                        <ion-label>{{selected.name}}</ion-label>
                     </ion-chip>
 
                 </div>
-                <h6 class="refs">Referanslar
+
+                <h6>
                     <ion-chip class="chip ion-margin-bottom">
+                        <ion-label>REFERANSLAR &nbsp;</ion-label>
+                    </ion-chip>
+                    <ion-chip class="chip2 ion-margin-bottom">
                         <ion-label>25</ion-label>
                     </ion-chip>
                 </h6>
+
             </div>
             <ion-button expand="block" class="button-style">Paylaştığım Postlar</ion-button>
             <ion-button expand="block" class="button-style">Gelen Davetler</ion-button>
