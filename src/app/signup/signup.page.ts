@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {AuthService} from '../services/authService/auth.service';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-signup',
@@ -14,14 +15,18 @@ export class SignupPage implements OnInit {
     username: string;
 
 
-    constructor(private authService: AuthService) {
+    constructor(private navCtrl: NavController, private authService: AuthService) {
     }
 
     ngOnInit() {
     }
 
     signup() {
-        this.authService.serviceSignup(this.email, this.password, this.username);
+        this.authService.serviceSignup(this.email, this.password, this.username).then(() => {
+            this.navCtrl.navigateRoot('profile').catch((err) => {
+                console.log(err);
+            });
+        });
     }
 
 }

@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import {AlertController} from '@ionic/angular';
-import {log} from 'util';
 import {FirebaseService} from '../services/firebaseService/firebase.service';
+import {AuthService} from '../services/authService/auth.service';
+import {NavController} from '@ionic/angular';
+
 
 @Component({
     selector: 'app-profile-edit',
@@ -352,7 +354,9 @@ export class ProfileEditPage implements OnInit {
 
     constructor(private firebaseService: FirebaseService,
                 public alertController: AlertController,
-                private camera: Camera) {
+                private camera: Camera,
+                private authService: AuthService,
+                private navCtrl: NavController) {
     }
 
     ngOnInit() {
@@ -385,9 +389,10 @@ export class ProfileEditPage implements OnInit {
     }
 
     saveClick() {
-        if (this.isPpUpdated) {
+        /*if (this.isPpUpdated) {
             this.firebaseService.updateProfilePic(this.uid, this.updatedProfilPic);
-        }
+        }*/
+        this.navCtrl.navigateRoot('/login');
     }
 
     deleteCityClick(i: number) {
