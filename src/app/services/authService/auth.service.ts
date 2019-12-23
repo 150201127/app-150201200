@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as firebase from 'firebase/app';
-import {BehaviorSubject} from 'rxjs';
+import {FirebaseService} from '../firebaseService/firebase.service';
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +8,9 @@ import {BehaviorSubject} from 'rxjs';
 export class AuthService {
 
     private isLoggedIn = false;
+
+    constructor(private firebaseService: FirebaseService) {
+    }
 
     serviceLogin(email: string, password: string): Promise<any> {
         return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -23,6 +26,12 @@ export class AuthService {
                 displayName: username,
                 photoURL: 'https://firebasestorage.googleapis.com/v0/b/couchsurfing-' +
                     '4b699.appspot.com/o/prof.png?alt=media&token=0fc198e8-e87e-4f2e-ac9e-0fd7241fd7c2',
+            }).then(() => {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user != null) {
+                        this.firebaseService.setRefsZero(user.uid);
+                    }
+                });
             });
         });
     }
@@ -37,8 +46,5 @@ export class AuthService {
         });
 
         return this.isLoggedIn;
-    }
-
-    constructor() {
     }
 }

@@ -25,328 +25,328 @@ export class ProfileEditPage implements OnInit {
 
     cities: any[] = [
         {
-            plate: 1,
-            name: 'Adana'
+            name: 'Adana',
+            plate: 1
         },
         {
-            plate: 2,
-            name: 'ADIYAMAN'
+            name: 'ADIYAMAN',
+            plate: 2
         },
         {
-            plate: 3,
-            name: 'AFYONKARAHİSAR'
+            name: 'AFYONKARAHİSAR',
+            plate: 3
         },
         {
-            plate: 4,
-            name: 'AĞRI'
+            name: 'AĞRI',
+            plate: 4
         },
         {
-            plate: 5,
-            name: 'AMASYA'
+            name: 'AMASYA',
+            plate: 5
         },
         {
-            plate: 6,
-            name: 'ANKARA'
+            name: 'ANKARA',
+            plate: 6
         },
         {
-            plate: 7,
-            name: 'ANTALYA'
+            name: 'ANTALYA',
+            plate: 7
         },
         {
-            plate: 8,
-            name: 'ARTVİN'
+            name: 'ARTVİN',
+            plate: 8
         },
         {
-            plate: 9,
-            name: 'AYDIN'
+            name: 'AYDIN',
+            plate: 9
         },
         {
-            plate: 10,
-            name: 'BALIKESİR'
+            name: 'BALIKESİR',
+            plate: 10
         },
         {
-            plate: 11,
-            name: 'BİLECİKK'
+            name: 'BİLECİKK',
+            plate: 11
         },
         {
-            plate: 12,
-            name: 'BİNGÖL'
+            name: 'BİNGÖL',
+            plate: 12
         },
         {
-            plate: 13,
-            name: 'BİTLİS'
+            name: 'BİTLİS',
+            plate: 13
         },
         {
-            plate: 14,
-            name: 'BOLU'
+            name: 'BOLU',
+            plate: 14
         },
         {
-            plate: 15,
-            name: 'BURDUR'
+            name: 'BURDUR',
+            plate: 15
         },
         {
-            plate: 16,
-            name: 'BURSA'
+            name: 'BURSA',
+            plate: 16
         },
         {
-            plate: 17,
-            name: 'ÇANAKKALE'
+            name: 'ÇANAKKALE',
+            plate: 17
         },
         {
-            plate: 18,
-            name: 'ÇANKIRI'
+            name: 'ÇANKIRI',
+            plate: 18
         },
         {
-            plate: 19,
-            name: 'ÇORUM'
+            name: 'ÇORUM',
+            plate: 19
         },
         {
-            plate: 20,
-            name: 'DENİZLİ'
+            name: 'DENİZLİ',
+            plate: 20
         },
         {
-            plate: 21,
-            name: 'DİYARBAKIR'
+            name: 'DİYARBAKIR',
+            plate: 21
         },
         {
-            plate: 22,
-            name: 'EDİRNE'
+            name: 'EDİRNE',
+            plate: 22
         },
         {
-            plate: 23,
-            name: 'ELAZIĞ'
+            name: 'ELAZIĞ',
+            plate: 23
         },
         {
-            plate: 24,
-            name: 'ERZİNCAN'
+            name: 'ERZİNCAN',
+            plate: 24
         },
         {
-            plate: 25,
-            name: 'ERZURUM'
+            name: 'ERZURUM',
+            plate: 25
         },
         {
-            plate: 26,
-            name: 'ESKİŞEHİR'
+            name: 'ESKİŞEHİR',
+            plate: 26
         },
         {
-            plate: 27,
-            name: 'GAZİANTEP'
+            name: 'GAZİANTEP',
+            plate: 27
         },
         {
-            plate: 28,
-            name: 'GİRESUN'
+            name: 'GİRESUN',
+            plate: 28
         },
         {
-            plate: 29,
-            name: 'GÜMÜŞHANE'
+            name: 'GÜMÜŞHANE',
+            plate: 29
         },
         {
-            plate: 30,
-            name: 'HAKKARİ'
+            name: 'HAKKARİ',
+            plate: 30
         },
         {
-            plate: 31,
-            name: 'HATAY'
+            name: 'HATAY',
+            plate: 31
         },
         {
-            plate: 32,
-            name: 'ISPARTA'
+            name: 'ISPARTA',
+            plate: 32
         },
         {
-            plate: 33,
-            name: 'MERSİN'
+            name: 'MERSİN',
+            plate: 33
         },
         {
-            plate: 34,
-            name: 'İSTANBUL'
+            name: 'İSTANBUL',
+            plate: 34
         },
         {
-            plate: 35,
-            name: 'İZMİR'
+            name: 'İZMİR',
+            plate: 35
         },
         {
-            plate: 36,
-            name: 'KARS'
+            name: 'KARS',
+            plate: 36
         },
         {
-            plate: 37,
-            name: 'KASTAMONU'
+            name: 'KASTAMONU',
+            plate: 37
         },
         {
-            plate: 38,
-            name: 'KAYSERİ'
+            name: 'KAYSERİ',
+            plate: 38
         },
         {
-            plate: 39,
-            name: 'KIRKLARELİ'
+            name: 'KIRKLARELİ',
+            plate: 39
         },
         {
-            plate: 40,
-            name: 'KIRŞEHİR'
+            name: 'KIRŞEHİR',
+            plate: 40
         },
         {
-            plate: 41,
-            name: 'KOCAELİ'
+            name: 'KOCAELİ',
+            plate: 41
         },
         {
-            plate: 42,
-            name: 'KONYA'
+            name: 'KONYA',
+            plate: 42
         },
         {
-            plate: 43,
-            name: 'KÜTAHYA'
+            name: 'KÜTAHYA',
+            plate: 43
         },
         {
-            plate: 44,
-            name: 'MALATYA'
+            name: 'MALATYA',
+            plate: 44
         },
         {
-            plate: 45,
-            name: 'MANİSA'
+            name: 'MANİSA',
+            plate: 45
         },
         {
-            plate: 46,
-            name: 'KAHRAMANMARAŞ'
+            name: 'KAHRAMANMARAŞ',
+            plate: 46
         },
         {
-            plate: 47,
-            name: 'MARDİN'
+            name: 'MARDİN',
+            plate: 47
         },
         {
-            plate: 48,
-            name: 'MUĞLA'
+            name: 'MUĞLA',
+            plate: 48
         },
         {
-            plate: 49,
-            name: 'MUŞ'
+            name: 'MUŞ',
+            plate: 49
         },
         {
-            plate: 50,
-            name: 'NEVŞEHİR'
+            name: 'NEVŞEHİR',
+            plate: 50
         },
         {
-            plate: 51,
-            name: 'NİĞDE'
+            name: 'NİĞDE',
+            plate: 51
         },
         {
-            plate: 52,
-            name: 'ORDU'
+            name: 'ORDU',
+            plate: 52
         },
         {
-            plate: 53,
-            name: 'RİZE'
+            name: 'RİZE',
+            plate: 53
         },
         {
-            plate: 54,
-            name: 'SAKARYA'
+            name: 'SAKARYA',
+            plate: 54
         },
         {
-            plate: 55,
-            name: 'SAMSUN'
+            name: 'SAMSUN',
+            plate: 55
         },
         {
-            plate: 56,
-            name: 'SİİRT'
+            name: 'SİİRT',
+            plate: 56
         },
         {
-            plate: 57,
-            name: 'SİNOP'
+            name: 'SİNOP',
+            plate: 57
         },
         {
-            plate: 58,
-            name: 'SİVAS'
+            name: 'SİVAS',
+            plate: 58
         },
         {
-            plate: 59,
-            name: 'TEKİRDAĞ'
+            name: 'TEKİRDAĞ',
+            plate: 59
         },
         {
-            plate: 60,
-            name: 'TOKAT'
+            name: 'TOKAT',
+            plate: 60
         },
         {
-            plate: 61,
-            name: 'TRABZON'
+            name: 'TRABZON',
+            plate: 61
         },
         {
-            plate: 62,
-            name: 'TUNCELİ'
+            name: 'TUNCELİ',
+            plate: 62
         },
         {
-            plate: 63,
-            name: 'ŞANLIURFA'
+            name: 'ŞANLIURFA',
+            plate: 63
         },
         {
-            plate: 64,
-            name: 'UŞAK'
+            name: 'UŞAK',
+            plate: 64
         },
         {
-            plate: 65,
-            name: 'VAN'
+            name: 'VAN',
+            plate: 65
         },
         {
-            plate: 66,
-            name: 'YOZGAT'
+            name: 'YOZGAT',
+            plate: 66
         },
         {
-            plate: 67,
-            name: 'ZONGULDAK'
+            name: 'ZONGULDAK',
+            plate: 67
         },
         {
-            plate: 68,
-            name: 'AKSARAY'
+            name: 'AKSARAY',
+            plate: 68
         },
         {
-            plate: 69,
-            name: 'BAYBURT'
+            name: 'BAYBURT',
+            plate: 69
         },
         {
-            plate: 70,
-            name: 'KARAMAN'
+            name: 'KARAMAN',
+            plate: 70
         },
         {
-            plate: 71,
-            name: 'KIRIKKALE'
+            name: 'KIRIKKALE',
+            plate: 71
         },
         {
-            plate: 72,
-            name: 'BATMAN'
+            name: 'BATMAN',
+            plate: 72
         },
         {
-            plate: 73,
-            name: 'ŞIRNAK'
+            name: 'ŞIRNAK',
+            plate: 73
         },
         {
-            plate: 74,
-            name: 'BARTIN'
+            name: 'BARTIN',
+            plate: 74
         },
         {
-            plate: 75,
-            name: 'ARDAHAN'
+            name: 'ARDAHAN',
+            plate: 75
         },
         {
-            plate: 76,
-            name: 'IĞDIR'
+            name: 'IĞDIR',
+            plate: 76
         },
         {
-            plate: 77,
-            name: 'YALOVA'
+            name: 'YALOVA',
+            plate: 77
         },
         {
-            plate: 78,
-            name: 'KARABÜK'
+            name: 'KARABÜK',
+            plate: 78
         },
         {
-            plate: 79,
-            name: 'KİLİS'
+            name: 'KİLİS',
+            plate: 79
         },
         {
-            plate: 80,
-            name: 'OSMANİYE'
+            name: 'OSMANİYE',
+            plate: 80
         },
         {
-            plate: 81,
-            name: 'DÜZCE'
+            name: 'DÜZCE',
+            plate: 81
         },
     ];
 
@@ -368,10 +368,8 @@ export class ProfileEditPage implements OnInit {
                 this.updatedProfilPic = user.photoURL;
                 this.uid = user.uid;
             }
-            this.firebaseService.getCities(user.uid).subscribe(data => {
-                if (data.data() != null) {
-                    this.selectedCities = Object.values(data.data().cities);
-                }
+            this.firebaseService.getCities(user.uid, (cities) => {
+                this.selectedCities = cities;
             });
         });
 
@@ -417,7 +415,11 @@ export class ProfileEditPage implements OnInit {
     }
 
     addCityClick() {
-        if (!this.selectedCities.includes(this.currentCity)) {
+        const isContain = this.selectedCities.some(elem => {
+            return JSON.stringify(this.currentCity) === JSON.stringify(elem);
+        });
+
+        if (!isContain) {
             this.selectedCities.push(this.currentCity);
         }
     }

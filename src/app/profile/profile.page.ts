@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
     username: string;
     profilePic: string;
     cities = [];
+    refCount: number;
 
     constructor(private firebaseService: FirebaseService, private navCtrl: NavController) {
     }
@@ -22,11 +23,15 @@ export class ProfilePage implements OnInit {
             this.username = '@' + user.displayName;
             this.profilePic = user.photoURL;
 
-            this.firebaseService.getCities(user.uid).subscribe(data => {
-                if (data.data() != null) {
-                    this.cities = Object.values(data.data().cities);
-                }
+            this.firebaseService.getCities(user.uid, (cities) => {
+                this.cities = cities;
             });
+
+            this.firebaseService.getRefs(user.uid, (refs) => {
+                this.refCount = refs;
+            });
+
+
         });
     }
 
