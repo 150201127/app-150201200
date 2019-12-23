@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
-import {AlertController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {FirebaseService} from '../services/firebaseService/firebase.service';
 import {AuthService} from '../services/authService/auth.service';
-import {NavController} from '@ionic/angular';
 
 
 @Component({
@@ -22,6 +21,7 @@ export class ProfileEditPage implements OnInit {
     currentCity: {};
     updatedProfilPic: any;
     isPpUpdated = false;
+    isLoading = false;
 
     cities: any[] = [
         {
@@ -368,10 +368,11 @@ export class ProfileEditPage implements OnInit {
                 this.updatedProfilPic = user.photoURL;
                 this.uid = user.uid;
             }
-            // buraya data cek
             this.firebaseService.getCities(user.uid).subscribe(data => {
-                this.selectedCities = Object.values(data.data().cities);
-            });;
+                if (data.data() != null) {
+                    this.selectedCities = Object.values(data.data().cities);
+                }
+            });
         });
 
 
@@ -394,15 +395,18 @@ export class ProfileEditPage implements OnInit {
     }
 
     saveClick() {
+        this.isLoading = true;
         if (this.isPpUpdated) {
             this.firebaseService.updateProfilePic(this.uid, this.updatedProfilPic).then(() => {
                 this.firebaseService.uploadCities(this.uid, this.selectedCities).then(() => {
                     this.navCtrl.navigateRoot('/profile');
+                    this.isLoading = false;
                 });
             });
         } else {
             this.firebaseService.uploadCities(this.uid, this.selectedCities).then(() => {
                 this.navCtrl.navigateRoot('/profile');
+                this.isLoading = false;
             });
         }
 

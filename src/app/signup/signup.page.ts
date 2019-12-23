@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
 import {AuthService} from '../services/authService/auth.service';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-signup',
@@ -13,19 +12,37 @@ export class SignupPage implements OnInit {
     email: string;
     password: string;
     username: string;
+    isLoading = false;
 
 
-    constructor(private navCtrl: NavController, private authService: AuthService) {
+    constructor(private alertController: AlertController, private navCtrl: NavController, private authService: AuthService) {
     }
 
     ngOnInit() {
     }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Uyarı',
+            message: 'Aşağıdakileri kontrol ediniz<br>Şifreniz en az 8 karakter olmalı<br>Email adresinizin doğruluğunu kontrol ediniz',
+            buttons: [{
+                text: 'Tamam',
+                role: 'resume',
+            }]
+        });
+        await alert.present();
+    }
+
     signup() {
+        this.isLoading = true;
         this.authService.serviceSignup(this.email, this.password, this.username).then(() => {
             this.navCtrl.navigateRoot('profile').catch((err) => {
                 console.log(err);
             });
+            this.isLoading = false;
+        }).catch((err) => {
+            this.isLoading = false;
+            this.presentAlert();
         });
     }
 

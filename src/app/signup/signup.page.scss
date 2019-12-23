@@ -2,6 +2,12 @@ ion-content {
   --background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
+ion-spinner {
+  width: 100px !important;
+  height: 100px !important;
+  margin: auto;
+}
+
 ion-title {
   margin-top: 30vh;
   margin-bottom: 5vh;

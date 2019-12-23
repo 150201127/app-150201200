@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
 import {AuthService} from '../services/authService/auth.service';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-login',
@@ -12,18 +11,37 @@ export class LoginPage implements OnInit {
 
     email: string;
     password: string;
+    isLoading = false;
 
-    constructor(private navCtrl: NavController, private authService: AuthService) {
+    constructor(private alertController: AlertController, private navCtrl: NavController, private authService: AuthService) {
     }
 
     ngOnInit() {
     }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Uyarı',
+            message: 'Email veya şifre hatalıdır',
+            buttons: [{
+                text: 'Tamam',
+                role: 'resume',
+            }]
+        });
+        await alert.present();
+    }
+
     loginClick() {
+        this.isLoading = true;
         this.authService.serviceLogin(this.email, this.password).then(() => {
-            this.navCtrl.navigateRoot('/profile').catch((err) => {
+            this.navCtrl.navigateRoot('/profile').then(data => {
+                this.isLoading = false;
+            }).catch((err) => {
                 console.log(err);
             });
+        }).catch(err => {
+            this.isLoading = false;
+            this.presentAlert();
         });
 
     }

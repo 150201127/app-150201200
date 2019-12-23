@@ -1,4 +1,6 @@
-<ion-content>
+<ion-spinner name="crescent" *ngIf="isLoading"></ion-spinner>
+
+<ion-content *ngIf="!isLoading">
 
     <ion-grid>
 

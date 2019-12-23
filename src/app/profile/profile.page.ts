@@ -23,8 +23,10 @@ export class ProfilePage implements OnInit {
             this.profilePic = user.photoURL;
 
             this.firebaseService.getCities(user.uid).subscribe(data => {
-                this.cities = Object.values(data.data().cities);
-            });;
+                if (data.data() != null) {
+                    this.cities = Object.values(data.data().cities);
+                }
+            });
         });
     }
 

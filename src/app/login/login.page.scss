@@ -1,5 +1,11 @@
 ion-content {
-  --background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  --background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+ion-spinner {
+  width: 100px !important;
+  height: 100px !important;
+  margin: auto;
 }
 
 ion-title {
