@@ -39,6 +39,10 @@ const routes: Routes = [
         path: 'profile-edit',
         loadChildren: './profile-edit/profile-edit.module#ProfileEditPageModule'
     },
+    {
+        path: 'posts',
+        loadChildren: './module-150201200/posts.module#PostsModule'
+    },
 
 
 ];
