@@ -41,7 +41,7 @@ const routes: Routes = [
     },
     {
         path: 'posts',
-        loadChildren: './module-150201200/posts.module#PostsModule'
+        loadChildren: './posts/posts.module#PostsModule'
     },
 
 
