@@ -7,17 +7,14 @@ import {FirebaseService} from '../firebaseService/firebase.service';
 })
 export class AuthService {
 
-    private isLoggedIn = false;
+    public isLoggedIn = false;
 
     constructor(private firebaseService: FirebaseService) {
     }
 
     serviceLogin(email: string, password: string): Promise<any> {
+        this.isLoggedIn = true;
         return firebase.auth().signInWithEmailAndPassword(email, password);
-    }
-
-    serviceLogOut() {
-        firebase.auth().signOut();
     }
 
     serviceSignup(email: string, password: string, username): Promise<any> {
@@ -29,6 +26,7 @@ export class AuthService {
             }).then(() => {
                 firebase.auth().onAuthStateChanged((user) => {
                     if (user != null) {
+                        this.isLoggedIn = true;
                         this.firebaseService.setRefsZero(user.uid);
                     }
                 });
@@ -36,15 +34,8 @@ export class AuthService {
         });
     }
 
-    authenticated(): boolean {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.isLoggedIn = true;
-            } else {
-                this.isLoggedIn = false;
-            }
-        });
-
-        return this.isLoggedIn;
+    signOut() {
+        this.isLoggedIn = false;
+        return firebase.auth().signOut();
     }
 }

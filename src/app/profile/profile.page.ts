@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {NavController} from '@ionic/angular';
 import {FirebaseService} from '../services/firebaseService/firebase.service';
+import {AuthService} from '../services/authService/auth.service';
 
 @Component({
     selector: 'app-profile',
@@ -15,7 +16,7 @@ export class ProfilePage implements OnInit {
     cities = [];
     refCount: number;
 
-    constructor(private firebaseService: FirebaseService, private navCtrl: NavController) {
+    constructor(private firebaseService: FirebaseService, private navCtrl: NavController, private authS: AuthService) {
     }
 
     ngOnInit() {
@@ -38,6 +39,12 @@ export class ProfilePage implements OnInit {
     settingsClick() {
         this.navCtrl.navigateRoot('/profile-edit').catch((err) => {
             console.log(err);
+        });
+    }
+
+    logOut() {
+        this.authS.signOut().then(data => {
+            this.navCtrl.navigateRoot('signup');
         });
     }
 

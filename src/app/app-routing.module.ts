@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from './guard/auth.guard';
 
 const routes: Routes = [
     {
@@ -33,15 +34,18 @@ const routes: Routes = [
     },
     {
         path: 'profile',
-        loadChildren: './profile/profile.module#ProfilePageModule'
+        loadChildren: './profile/profile.module#ProfilePageModule',
+        canActivate: [AuthGuard]
     },
     {
         path: 'profile-edit',
-        loadChildren: './profile-edit/profile-edit.module#ProfileEditPageModule'
+        loadChildren: './profile-edit/profile-edit.module#ProfileEditPageModule',
+        canActivate: [AuthGuard]
     },
     {
         path: 'posts',
-        loadChildren: './posts/posts.module#PostsModule'
+        loadChildren: './posts/posts.module#PostsModule',
+        canActivate: [AuthGuard]
     },
 
 
