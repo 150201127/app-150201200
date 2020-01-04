@@ -18,6 +18,7 @@ import {environment} from 'src/environments/environment';
 import {Camera} from '@ionic-native/camera/ngx';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 firebase.initializeApp(environment.firebase);
 
@@ -43,6 +44,7 @@ firebase.initializeApp(environment.firebase);
         ToastController,
         NavController,
         AngularFirestore,
+        Geolocation
 
     ],
     bootstrap: [AppComponent]
