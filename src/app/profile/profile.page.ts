@@ -48,4 +48,10 @@ export class ProfilePage implements OnInit {
         });
     }
 
+    gotoMyPosts() {
+        this.navCtrl.navigateRoot('posts/my-posts').catch((err) => {
+            console.log(err);
+        });
+    }
+
 }
