@@ -36,7 +36,7 @@ export class SignupPage implements OnInit {
     signup() {
         this.isLoading = true;
         this.authService.serviceSignup(this.email, this.password, this.username).then(() => {
-            this.navCtrl.navigateRoot('profile').catch((err) => {
+            this.navCtrl.navigateRoot('posts').catch((err) => {
                 console.log(err);
             });
             this.isLoading = false;

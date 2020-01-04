@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
     loginClick() {
         this.isLoading = true;
         this.authService.serviceLogin(this.email, this.password).then(() => {
-            this.navCtrl.navigateRoot('/profile').then(data => {
+            this.navCtrl.navigateRoot('/posts').then(data => {
                 this.isLoading = false;
             }).catch((err) => {
                 console.log(err);

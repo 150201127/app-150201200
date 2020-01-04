@@ -46,7 +46,8 @@ const routes: Routes = [
         path: 'posts',
         loadChildren: './posts/posts.module#PostsModule',
         canActivate: [AuthGuard]
-    },
+    },  { path: 'my-posts', loadChildren: './src/app/posts/my-posts/my-posts.module#MyPostsPageModule' },
+
 
 
 ];
