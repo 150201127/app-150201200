@@ -54,4 +54,10 @@ export class ProfilePage implements OnInit {
         });
     }
 
+    gotoMessages() {
+        this.navCtrl.navigateRoot('messaging/messaging').catch((err) => {
+            console.log(err);
+        });
+    }
+
 }

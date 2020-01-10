@@ -47,6 +47,11 @@ const routes: Routes = [
         loadChildren: './posts/posts.module#PostsModule',
         canActivate: [AuthGuard]
     },
+    {
+        path: 'messaging',
+        loadChildren: './messaging/messaging.module#MessagingModule',
+        canActivate: [AuthGuard]
+    },
 
 
 
